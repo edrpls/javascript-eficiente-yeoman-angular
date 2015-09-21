@@ -1,0 +1,8 @@
+<div class="panel-default panel">
+  <p class="btn-lg">Tarea: {{::todo.title}}</p>
+  <p class="btn-lg">
+    Completa:
+    <span ng-if="todo.completed" class="glyphicon glyphicon-ok-circle" aria-hidden="true"></span>
+    <span ng-if="!todo.completed" class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span>
+  </p>
+</div>
