@@ -8,10 +8,8 @@
  * Controller of the propTalkApp
  */
 angular.module('propTalkApp')
-  .controller('MainCtrl', function () {
-    this.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
+  .controller('MainCtrl', function (Todos) {
+    this.todos = Todos.query();
+
+    console.log(this.todos);
   });
