@@ -9,9 +9,14 @@
  */
 angular.module('propTalkApp')
   .controller('MainCtrl', function (Todos, Users) {
-    this.todos = Todos.query();
-    this.users = Users.query();
+    var controller = this;
+    Todos.query(function (todos) {
+      Users.query(function (users) {
+        // Aquí intercalamos la información
+        controller.todos = todos;
+        controller.users = users;
+      });
+    });
 
-    console.log(this.todos);
-    console.log(this.users);
+    console.log(controller);
   });
