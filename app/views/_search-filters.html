@@ -1,0 +1,14 @@
+<form class="form-inline">
+  <div class="form-group">
+    <input ng-model="main.query.text" ng-model-options="{debounce: 350}" type="text" class="form-control" placeholder="Búsqueda">
+  </div>
+  <div class="form-group">
+    <select ng-model="main.query.status" ng-options="s.value as s.label for s in main.query.availableStatuses" class="form-control">
+      <option value="">Estatus</option>
+    </select>
+  </div>
+  <button ng-click="main.order(true)" type="button" class="btn btn-default">
+    <span ng-if="!main.reverse" class="glyphicon glyphicon-sort-by-alphabet" aria-hidden="true"></span>
+    <span ng-if="main.reverse" class="glyphicon glyphicon-sort-by-alphabet-alt" aria-hidden="true"></span>
+  </button>
+</form>

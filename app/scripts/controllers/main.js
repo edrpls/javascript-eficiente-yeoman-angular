@@ -8,11 +8,30 @@
  * Controller of the propTalkApp
  */
 angular.module('propTalkApp')
-  .controller('MainCtrl', function ($q, Todos, Users) {
+  .controller('MainCtrl', function ($q, $filter, Todos, Users) {
+    var orderBy = $filter('orderBy'),
+        controller = this;
 
-    //The Angular Way
-    this.todos = Todos.query();
+    this.reverse = false;
+    this.query = {};
+    this.query.availableStatuses = [
+      {value: true, label: 'Completa'},
+      {value: false, label: 'Incompleta'},
+    ];
+
+    /* The Angular Way */
+    this.todos = Todos.query(function (todos) {
+      controller.backup = angular.copy(todos);
+      controller.order();
+    });
     this.users = Users.query();
+
+    this.order = function (reverse) {
+      if (reverse) {
+        controller.reverse = !controller.reverse;
+      }
+      controller.todos = orderBy(controller.todos, 'title', controller.reverse);
+    };
 
     /* Callbacks
     var controller = this;
