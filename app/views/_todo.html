@@ -1,5 +1,5 @@
-<div class="panel-default panel">
-  <p class="btn-lg">Tarea: {{::todo.title}}</p>
+<div class="panel-default panel" ng-click="disabled = !disabled">
+  <input ng-model="todo.title" ng-model-options="{debounce: 350}" type="text" value="" class="form-control" ng-disabled="disabled">
   <p class="btn-lg">Usuario: {{main.users[todo.userId].username}}</p>
   <p class="btn-lg">
     Completa:
