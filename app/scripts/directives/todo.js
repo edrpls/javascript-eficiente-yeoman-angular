@@ -13,7 +13,7 @@ angular.module('propTalkApp')
       restrict: 'E',
       replace: true,
       link: function postLink(scope, element, attrs) {
-        console.log(scope.todo);
+        //console.log(scope.todo);
         //element.text('this is the todo directive');
       }
     };
