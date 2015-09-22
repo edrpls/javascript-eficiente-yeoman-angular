@@ -9,7 +9,12 @@
  */
 angular.module('propTalkApp')
   .controller('MainCtrl', function ($q, Todos, Users) {
-    /*
+
+    //The Angular Way
+    this.todos = Todos.query();
+    this.users = Users.query();
+
+    /* Callbacks
     var controller = this;
     Todos.query(function (todos) {
       Users.query(function (users) {
@@ -22,6 +27,7 @@ angular.module('propTalkApp')
       });
     });
     */
+    /* Promesas
     var controller = this;
     this.todos = Todos.query();
     this.users = Users.query();
@@ -42,6 +48,5 @@ angular.module('propTalkApp')
       var user = controller.users[elt.userId];
       elt.userId = undefined;
       elt.user = user;
-    }
-
+    }*/
   });

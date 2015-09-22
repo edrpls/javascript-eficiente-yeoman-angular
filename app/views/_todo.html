@@ -1,6 +1,6 @@
 <div class="panel-default panel">
   <p class="btn-lg">Tarea: {{::todo.title}}</p>
-  <p class="btn-lg">Usuario: {{todo.user.username}}</p>
+  <p class="btn-lg">Usuario: {{main.users[todo.userId].username}}</p>
   <p class="btn-lg">
     Completa:
     <span ng-if="todo.completed" class="glyphicon glyphicon-ok-circle" aria-hidden="true"></span>
