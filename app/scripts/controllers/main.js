@@ -8,7 +8,7 @@
  * Controller of the propTalkApp
  */
 angular.module('propTalkApp')
-  .controller('MainCtrl', function ($q, $filter, Todos, Users) {
+  .controller('MainCtrl', function ($filter, Todos, Users) {
     var orderBy = $filter('orderBy'),
         controller = this;
 

@@ -20,13 +20,27 @@ angular.module('propTalkApp')
           return true;
         }
       }
-      items.forEach(function (elt) {
+      angular.forEach(items, function (elt) {
         if (hasString(elt, users)) {
           if (status === null || elt.completed === status) {
             filteredItems.push(elt);
           }
         }
       });
+      /*items.forEach(function (elt) {
+        if (hasString(elt, users)) {
+          if (status === null || elt.completed === status) {
+            filteredItems.push(elt);
+          }
+        }
+      });*/
+      /*for (var i = 0, len = items.length; i < len; i++) {
+        if (hasString(items[i], users)) {
+          if (status === null || items[i].completed === status) {
+            filteredItems.push(items[i]);
+          }
+        }
+      }*/
       return filteredItems;
     };
   });
