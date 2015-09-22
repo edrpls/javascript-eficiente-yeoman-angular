@@ -22,17 +22,26 @@ angular.module('propTalkApp')
       });
     });
     */
+    var controller = this;
     this.todos = Todos.query();
     this.users = Users.query();
 
     $q.all([
       this.todos.$promise,
       this.users.$promise
-    ]).then(function () {
+    ]).then(function () {//Todo salió bien
+      //console.log(controller.users);
+      //console.log(controller.todos);
+      controller.todos.forEach(crossUsers);
     },
-    function () {
-      //Aquí intercalamos la información
-      console.log(this.users);
-      console.log(this.todos);
+    function (err) {//Aquí manejamos los errores
+      console.log(err);
     });
+
+    function crossUsers(elt) {
+      var user = controller.users[elt.userId];
+      elt.userId = undefined;
+      elt.user = user;
+    }
+
   });
