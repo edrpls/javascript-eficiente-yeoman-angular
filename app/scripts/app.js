@@ -15,7 +15,9 @@ angular
     'ngResource',
     'ui.router',
     'ngSanitize',
-    'ngTouch'
+    'ngTouch',
+    'angular-loading-bar',
+    'cfp.loadingBar'
   ])
   .config(function ($stateProvider, $urlRouterProvider) {
     $urlRouterProvider.otherwise('/');
